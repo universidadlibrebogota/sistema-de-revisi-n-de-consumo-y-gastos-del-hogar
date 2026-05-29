@@ -138,3 +138,46 @@ li {
     }
 }
 
+/* ===== TOAST NOTIFICACIONES (ARRIBA CENTRO) ===== */
+.toast {
+    position: fixed;
+    /* Corrección: Cambiado de bottom a top para posicionarlo arriba */
+    top: -100px; 
+    /* Corrección: Centrado milimétrico horizontal en la pantalla */
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    min-width: 250px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    opacity: 0;
+    /* Mejora: Transición suavizada para la entrada superior */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+    text-align: center; /* Asegura que el texto corto quede centrado dentro del aviso */
+}
+
+/* Mostrar */
+.toast.show {
+    opacity: 1;
+    /* Corrección: Baja a 20px del borde superior manteniendo el centrado horizontal */
+    top: 20px;
+}
+
+/* Tipos */
+.toast.success {
+    background: #10b981; /* verde */
+}
+
+.toast.error {
+    background: #ef4444; /* rojo */
+}
+
+.toast.warning {
+    background: #f59e0b; /* amarillo */
+}
+
+.toast.info {
+    background: #3b82f6; /* azul */
+}

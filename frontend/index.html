@@ -4,25 +4,175 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Gastos</title>
-    <!-- Corrección: El archivo CSS debe enlazarse con la etiqueta <link> -->
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-    <div class="container">
-        <h1> Sistema de Gastos</h1>
 
-        <!-- Sección de Registro -->
-        <div class="card">
-            <h2>Registro</h2>
-            <input type="text" id="nombre" placeholder="Nombre">
-            <input type="email" id="correo" placeholder="Correo">
-            <input type="password" id="password" placeholder="Contraseña">
-            <button onclick="registrar()">Registrar</button>
+<div class="container">
+    <h1>💰 Sistema de Gastos</h1>
+<div id="top-buttons"
+     style="display:none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            gap: 10px;
+            z-index: 1000;">
+
+     
+    <span id="usuarioNombre" style="font-weight:bold; color:#333;"></span>
+
+
+    <button onclick="cerrarSesion()" style="background:#ef4444;">
+        🚪 Salir
+    </button>
+
+    <a href="https://wa.me/573007289044" target="_blank">
+        <button style="background:#25D366;">
+            💬 Contacto
+        </button>
+    </a>
+
+</div>
+
+
+    <!-- ===== REGISTRO (VISIBLE AL INICIO) ===== -->
+    <div class="card" id="registro">
+        <h2>Registro</h2>
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="email" id="correo" placeholder="Correo">
+        <input type="password" id="password" placeholder="Contraseña">
+        <button onclick="registrar()">Registrar</button>
+
+        <p style="text-align:center;margin-top:15px;">
+            ¿Ya tienes cuenta?
+            <a href="#" onclick="mostrarVista('login')">Inicia sesión</a>
+        </p>
+    </div>
+
+    <!-- ===== LOGIN (OCULTO AL INICIO) ===== -->
+    <div class="card" id="login" style="display:none;">
+        <h2>Login</h2>
+        <input type="email" id="loginCorreo" placeholder="Correo">
+        <input type="password" id="loginPassword" placeholder="Contraseña">
+        <button onclick="login()">Ingresar</button>
+
+        <p style="text-align:center;margin-top:15px;">
+            ¿No tienes cuenta?
+            <a href="#" onclick="mostrarVista('registro')">Regístrate</a>
+        </p>
+    </div>
+
+    <!-- ===== NAV (OCULTO AL INICIO) ===== -->
+    <div id="nav-botones" style="display: none; justify-content: space-between; gap: 10px; margin-bottom: 20px;">
+        <button onclick="mostrarVista('gastos')">Añadir gasto</button>
+        <button onclick="mostrarVista('lista'); cargarGastos()">Ver gastos</button>
+        <button onclick="verDashboard()">Dashboard</button>
+    </div>
+
+    <!-- ===== GASTOS Y CONFIGURACIÓN (CATEGORÍAS BLINDADAS) ===== -->
+    <div class="card" id="gastos" style="display:none;">
+        <h2>Registrar Gasto</h2>
+        
+        <label for="categoria" style="font-size: 14px; font-weight: bold; color: var(--text-muted);">Categoría:</label>
+        <select id="categoria" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border); font-size: 15px; background-color: #f1f5f9; margin-top: 5px; margin-bottom: 16px;">
+            <option value="" disabled selected>Selecciona una categoría...</option>
+            <option value="Agua">💧 Agua</option>
+            <option value="Luz">💡 Luz</option>
+            <option value="Gas">🔥 Gas</option>
+            <option value="Internet">🌐 Internet</option>
+        </select>
+
+        <input id="valor" type="number" placeholder="Valor ($)">
+        <input id="fecha" type="date"> 
+        <button onclick="crearGasto()" style="margin-bottom: 25px;">Guardar Gasto</button>
+
+        <!-- Formulario de definir presupuestos (HU008) -->
+        <div id= "formPresupuesto">
+        <h2 style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 10px;">Definición de Presupuestos</h2>
+
+        <label for="limiteCategoria" style="font-size: 14px; font-weight: bold; color: var(--text-muted);">Categoría del Presupuesto:</label>
+        <select id="limiteCategoria" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border); font-size: 15px; background-color: #f1f5f9; margin-top: 5px; margin-bottom: 16px;">
+            <option value="" disabled selected>Selecciona una categoría...</option>
+            <option value="Agua">💧 Agua</option>
+            <option value="Luz">💡 Luz</option>
+            <option value="Gas">🔥 Gas</option>
+            <option value="Internet">🌐 Internet</option>
+        </select>
+
+        <input id="limiteValor" type="number" placeholder="Monto Presupuesto ($)">
+        <button onclick="guardarPresupuesto()" style="background-color: var(--primary); margin-bottom: 25px;">Guardar / Modificar Presupuesto</button>
+         </div>
+
+        <!-- 💵 CORREGIDO: FORMULARIO DE REGISTRO DE INGRESOS CON SELECTOR (RQ-10) -->
+<h2 style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 10px;">💵 Registro de Ingresos</h2>
+
+<label for="ingresoFuente" style="font-size: 14px; font-weight: bold; color: var(--text-muted);">Fuente de Ingreso:</label>
+<select id="ingresoFuente" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border); font-size: 15px; background-color: #f1f5f9; margin-top: 5px; margin-bottom: 12px; box-sizing: border-box;">
+    <option value="" disabled selected>Selecciona una fuente...</option>
+    <option value="Salario">💼 Salario / Nómina</option>
+    <option value="Venta">🛍️ Ventas / Comercio</option>
+    <option value="Mesada">🏠 Mesada / Apoyo Hogar</option>
+    <option value="Otros">💰 Otros Ingresos</option>
+</select>
+
+<input id="ingresoValor" type="number" placeholder="Monto ($)">
+<button onclick="crearIngreso()" style="background-color: #3b82f6; margin-bottom: 25px;">Guardar Ingreso</button>
+
+
+        <h3>Mis Presupuestos Actuales</h3>
+        <ul id="listaPresupuestos"></ul>
+    </div>
+
+    <!-- ===== LISTA (HISTORIAL HU004 Y RESUMEN FINANCIERO HU010) ===== -->
+    <div class="card" id="lista" style="display:none;">
+        <h2>Mis gastos</h2>
+        
+        <div style="margin-bottom: 15px;">
+            <label for="filtroPeriodo" style="font-size: 14px; font-weight: bold; color: var(--text-muted);">Filtrar por:</label>
+            <select id="filtroPeriodo" onchange="filtrarYMostrarGastos()" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); font-size: 14px; margin-top: 5px;">
+                <option value="todos">Mostrar todos (Historial)</option>
+                <option value="diario">Hoy (Diario)</option>
+                <option value="semanal">Últimos 7 días (Semanal)</option>
+                <option value="mensual">Este mes (Mensual)</option>
+            </select>
         </div>
 
+        <ul id="listaGastos"></ul>
         
+            <!-- ... (Busca el final de tu <div class="card" id="lista">) -->
+        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border); line-height: 1.8;">
+            <p>💰 <strong>Total Ingresos:</strong> $ <span id="totalIngresos" style="color: #3b82f6;">0</span></p>
+            <p>📉 <strong>Total Gastos:</strong> $ <span id="total" style="color: #ef4444;">0</span></p>
+            <h3 style="margin-top: 10px; font-size: 20px;">⚖️ Balance Neto: $ <span id="balanceNeto">0</span></h3>
+        </div>
+
+        <!-- NUEVO RQ-11: Cuadro visual de tendencias mensuales -->
+        <h3 style="margin-top: 20px; font-size: 16px; border-top: 1px solid var(--border); padding-top: 15px;">📊 Tendencia de Consumo</h3>
+        <div id="cuadroComparativo"></div>
+
+        <!-- NUEVO RQ-12: Botón profesional para exportar reporte a PDF -->
+        <button onclick="exportarPDF()" style="background-color: var(--text-muted); margin-top: 15px;">📥 Exportar Reporte (PDF)</button>
+    </div>
+
+
+    <!-- ===== DASHBOARD Y RECOMENDACIONES (HU005 y HU009) ===== -->
+    <div class="card" id="dashboard" style="display:none;">
+        <h2>Dashboard de Consumo</h2>
+        <canvas id="grafico" style="margin-bottom: 25px;"></canvas>
+
+        <h2 style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 10px;">💡 Recomendaciones Inteligentes</h2>
+        <ul id="listaRecomendaciones" style="padding: 0; list-style: none;"></ul>
+    </div>
+
+</div>
+
+<!-- ✅ SCRIPTS Y TOAST -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="app.js"></script>
 
+<div id="toast" class="toast"></div>
 </body>
 </html>
+
