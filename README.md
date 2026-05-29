@@ -3,7 +3,7 @@
 Aplicación web fullstack para el control de gastos e ingresos del hogar, con análisis y visualización de datos.
 
 ---
-##🧪 Notas
+## 🧪 Notas
 
 El backend puede tardar unos segundos en responder por el "cold start" del plan gratuito de Render.
 Una vez activado, funciona en tiempo real.
