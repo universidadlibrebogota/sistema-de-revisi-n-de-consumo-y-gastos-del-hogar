@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="407e3ece-fb6a-40fb-b5f4-3d76a913c625" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/backend/sistema-gastos/Proyecto Cristian y Anderson.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/sistema-gastos/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/sistema-gastos/backend/sistema-gastos/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/sistema-gastos/frontend/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/sistema-gastos/frontend/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/sistema-gastos/frontend/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/sistema-gastos/images/Diagrama20estado.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/sistema-gastos/images/Diagrama20secuencia.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/sistema-gastos/images/diagrama%20cristian.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/sistema-gastos/images/test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/sistema-gastos/requerimientos cristian y anderson.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/sistema-gastos/src/main/java/com/gastos/hogar/HogarApplication.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/backend/sistema-gastos" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "cristianc3005-sketch"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/universidadlibrebogota/sistema-de-revisi-n-de-consumo-y-gastos-del-hogar.git",
+    "accountId": "7e8e68db-ac62-41fa-bdca-a49873f8ceb8"
+  }
+}]]></component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="3ENhZndnJ4lBP8m3LKmcf1Rnx6o" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "Spring Boot.HogarApplication.executor": "Run",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/xfeli/Downloads/hogar/hogar",
+    "settings.editor.selected.configurable": "proofread",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="407e3ece-fb6a-40fb-b5f4-3d76a913c625" name="Changes" comment="" />
+      <created>1780024992948</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1780024992948</updated>
+    </task>
+    <servers />
+  </component>
+</project>
