@@ -21,6 +21,12 @@ Una vez activado, funciona en tiempo real.
 - Balance financiero en tiempo real
 
 ---
+## 📋 Documentación
+
+Las historias de usuario, casos de uso y documentación detallada del proyecto se encuentran en la Wiki del repositorio:
+
+👉 https://github.com/universidadlibrebogota/sistema-de-revisi-n-de-consumo-y-gastos-del-hogar/wiki
+---
 
 ## 🧠 Tecnologías usadas
 
