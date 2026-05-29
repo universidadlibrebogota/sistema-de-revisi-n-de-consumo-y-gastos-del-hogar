@@ -1,5 +1,5 @@
 
-const API = "http://localhost:8080";
+const API = "https://sistema-de-revisi-n-de-consumo-y-gastos-tl4x.onrender.com";
 
 let grafico = null;
 let todosLosGastos = [];
