@@ -17,9 +17,9 @@ public class UsuarioController {
     private UsuarioServicio usuarioService;
 
     @PostMapping("/registro")
-    public Usuario registrar(@RequestBody UsuarioDTO dto) {
-        return usuarioService.registrar(dto);
-    }
+public Usuario registrar(@Valid @RequestBody UsuarioDTO dto) {
+    return usuarioService.registrar(dto);
+}
 
     @PostMapping("/login")
     public Usuario login(@RequestBody LoginDTO dto) {
