@@ -58,6 +58,9 @@ https://universidadlibrebogota.github.io/sistema-de-revision-de-consumo-y-gastos
 👉 Backend:
 https://sistema-de-revisi-n-de-consumo-y-gastos-tl4x.onrender.com
 
+Prototipo:
+https://www.figma.com/make/OSi8xseYMXLwio8DixLCEd/Sistema-de-Monitoreo-de-Gastos?fullscreen=1&t=BZkjr1l46AGLOIBF-1&code-node-id=0-9
+
 ---
 
 ## ⚙️ Cómo ejecutar el proyecto
