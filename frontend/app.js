@@ -61,6 +61,15 @@ function registrar() {
         toast("⚠️ Completa todos los campos", "warning");
         return;
     }
+    if (!correo.includes("@") || !correo.includes(".")) {
+    toast("❌ Correo inválido", "error");
+    return;
+}
+
+if (password.length < 6) {
+    toast("❌ La contraseña debe tener al menos 6 caracteres", "error");
+    return;
+}
 
     fetch(API + "/usuarios/registro", {
         method: "POST",
