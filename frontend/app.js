@@ -51,26 +51,44 @@ function mostrarVista(vista) {
     document.getElementById(vista).style.display = "block";
 }
 
-// ===== REGISTRO =====
 function registrar() {
     const nombre = document.getElementById("nombre").value.trim();
     const correo = document.getElementById("correo").value.trim();
     const password = document.getElementById("password").value;
 
+    //  1. Validar campos vacíos
     if (!nombre || !correo || !password) {
         toast("⚠️ Completa todos los campos", "warning");
         return;
     }
-    if (!correo.includes("@") || !correo.includes(".")) {
-    toast("❌ Correo inválido", "error");
-    return;
-}
 
-if (password.length < 6) {
-    toast("❌ La contraseña debe tener al menos 6 caracteres", "error");
-    return;
-}
+    //  2. Validar nombre
+    if (nombre.length < 3) {
+        toast("❌ El nombre debe tener al menos 3 caracteres", "error");
+        return;
+    }
 
+    //  3. Validar correo con regex (MEJOR)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(correo)) {
+        toast("❌ Correo inválido", "error");
+        return;
+    }
+
+    //  4. Validar contraseña
+    if (password.length < 6) {
+        toast("❌ La contraseña debe tener al menos 6 caracteres", "error");
+        return;
+    }
+
+    //  5. (OPCIONAL PRO) validar contraseña fuerte
+    if (!/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+        toast("❌ La contraseña debe tener al menos una mayúscula y un número", "error");
+        return;
+    }
+
+    //  6. Enviar al backend
     fetch(API + "/usuarios/registro", {
         method: "POST",
         headers: {
@@ -86,7 +104,6 @@ if (password.length < 6) {
         if (!res.ok) {
             throw new Error();
         }
-
         return res.json();
     })
     .then(() => {
